@@ -1,0 +1,2 @@
+the Elf with the highest total_calory:69501
+the top_3 Elfs with the highest total_calory: 69501, 66606, 66239. they are carrying the total of 202346 calories! ^_^)/\(^_^ 
