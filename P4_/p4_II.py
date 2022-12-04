@@ -58,11 +58,11 @@ if __name__ == '__main__':
                     flag = True 
         if flag == True : 
             counter +=1     
-        print(" _________________________________________ ") 
+
 
         
 
-
+    print(" _________________________________________ ") 
     print(f"counter: {counter}")
 
 

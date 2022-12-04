@@ -55,11 +55,11 @@ if __name__ == '__main__':
             counter +=1
         elif set(b).issubset(a) : 
             counter +=1
-        print(" _________________________________________ ") 
+        
 
         
 
-
+    print(" _________________________________________ ") 
     print(f"counter: {counter}")
 
 
