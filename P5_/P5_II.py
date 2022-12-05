@@ -47,7 +47,7 @@ while True :
     number_of_packages = int(arr[0]) 
     source = int(arr[1]-1) 
     destination = int(arr[2]-1) 
-    #print(f"source:{source}")
+    print(f"lists[source]:{lists[source]}")
 
     packages = [] 
     for i in range(number_of_packages): 
@@ -61,10 +61,12 @@ while True :
      
     print(lists[source])
     print("source UP , Destination Down")
-    print(lists[destination])
+    
     packages.reverse()
     for package in packages : 
         lists[destination].append(package)
+    
+    print(lists[destination])
     print(f"packages: {packages}")
     print(f"Destinatio: {lists[destination]} ")
     #ta in marhale mitoni ye package ro az ye list be ye liste dige bebarim 
