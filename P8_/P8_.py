@@ -9,52 +9,42 @@
 #jng = [i.split() for i in string.split('\n')]
 
 def check_up(arr, i, j):   
-    if  i-1 > 0 :
-        if arr[i][j] > arr[i-1][j]: #if equal; or shorter
-
-            return True # visible  
-        else : 
-            print("Visible from up")
-            return False # not visible 
-
-    return True 
+        while i - 1 >= 0 : 
+            if arr[i][j] <= arr[i-1][j]: #shorter the not visible 
+                return False 
+            i -= 1
+        return True 
 
 def check_down(arr, i, j):   
-    if  i+1 < len(arr) :
-        if arr[i][j] > arr[i+1][j]: #if equal; or shorter
-
-            return True # visible  
-        else : 
-            print("Visible from down")
-            return False #not visible
-
-    return True 
+        while i + 1 < len(arr) : 
+            if arr[i][j] <= arr[i+1][j]: #shorter the not visible 
+                return False 
+            i += 1
+        return True 
     
 def check_right(arr, i, j):    
-    if  j+1 < len(arr[0]):
-        if arr[i][j] > arr[i][j+1]: #if equal; or shorter
+        while j + 1 < len(arr[0]) : 
+            if arr[i][j] <= arr[i][j+1]: #shorter the not visible 
+                return False 
+            j += 1
+        return True 
 
-            return True #  visible  
-        else : 
-            print("Visible from right")
-            return False #not visible 
 
-    return True 
+def check_left(arr, i, j):   
+        while j - 1 >= 0 : 
+            if arr[i][j] <= arr[i][j-1]: #shorter the not visible 
+                return False 
+            j -= 1
+        return True 
 
-def check_left(arr, i, j):    
-    if  j-1 > 0 :
-        if arr[i][j] > arr[i][j-1]: #if equal; or shorter
 
-            return True # visible  
-        else : 
-            print("Visible from left")
-            return False #not visible 
-    return True 
 
 def _check(arr, i , j) :
-    if check_up(arr, i , j) or check_down(arr, i , j) or check_right(arr, i , j) or check_left(arr, i , j) : 
-        return +1 #its visible from some direction
-    return 0 
+        if i == 0 or j == 0 or i == len(arr) or j == len(arr[0]): 
+            return 1 # the tree is on the edge
+        elif  check_up(arr, i , j) or check_down(arr, i , j) or check_right(arr, i , j) or check_left(arr, i , j) : 
+            return 1 #its visible from some direction
+        return 0 
 
 
 
