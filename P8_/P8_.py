@@ -8,9 +8,10 @@
 
 #jng = [i.split() for i in string.split('\n')]
 
-def check_up(arr, i, j):   
+def check_up(arr, i, j):
+        k=j   
         while j - 1 >= 0 : 
-            if arr[i][j] <= arr[i][j-1]: #shorter or same size the not visible 
+            if arr[i][k] <= arr[i][j-1]: #shorter or same size the not visible 
                     #print("HiidenFromUp!") 
                     
                     return False 
@@ -18,8 +19,9 @@ def check_up(arr, i, j):
         return True 
 
 def check_down(arr, i, j):  
+        k=j
         while j + 1 < len(arr[0]) : 
-            if arr[i][j] <= arr[i][j+1]: #shorter or same size the not visible
+            if arr[i][k] <= arr[i][j+1]: #shorter or same size the not visible
 
                 return False 
             j += 1
@@ -27,9 +29,9 @@ def check_down(arr, i, j):
 
     
 def check_right(arr, i, j):    
-        
+        k=i
         while i + 1 < len(arr) : 
-            if arr[i][j] <= arr[i+1][j]: #shorter or same size the not visible 
+            if arr[k][j] <= arr[i+1][j]: #shorter or same size the not visible 
                 print(f" #i: {i} &i+1: {i+1}")
                 return False 
             i += 1
@@ -37,8 +39,9 @@ def check_right(arr, i, j):
 
 
 def check_left(arr, i, j): 
+        k = i 
         while i - 1 >= 0 : 
-            if arr[i][j] <= arr[i-1][j]: #shorter or same size the not visible 
+            if arr[k][j] <= arr[i-1][j]: #shorter or same size the not visible 
                 return False 
             i -= 1
         return True   
