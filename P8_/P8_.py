@@ -9,40 +9,48 @@
 #jng = [i.split() for i in string.split('\n')]
 
 def check_up(arr, i, j):   
-        while i - 1 >= 0 : 
-            if arr[i][j] <= arr[i-1][j]: #shorter the not visible 
-                return False 
-            i -= 1
+        while j - 1 >= 0 : 
+            if arr[i][j] <= arr[i][j-1]: #shorter or same size the not visible 
+                    #print("HiidenFromUp!") 
+                    
+                    return False 
+            j -= 1
         return True 
 
-def check_down(arr, i, j):   
+def check_down(arr, i, j):  
+        while j + 1 < len(arr[0]) : 
+            if arr[i][j] <= arr[i][j+1]: #shorter or same size the not visible
+
+                return False 
+            j += 1
+        return True          
+
+    
+def check_right(arr, i, j):    
+        
         while i + 1 < len(arr) : 
-            if arr[i][j] <= arr[i+1][j]: #shorter the not visible 
+            if arr[i][j] <= arr[i+1][j]: #shorter or same size the not visible 
+                print(f" #i: {i} &i+1: {i+1}")
                 return False 
             i += 1
         return True 
-    
-def check_right(arr, i, j):    
-        while j + 1 < len(arr[0]) : 
-            if arr[i][j] <= arr[i][j+1]: #shorter the not visible 
-                return False 
-            j += 1
-        return True 
 
 
-def check_left(arr, i, j):   
-        while j - 1 >= 0 : 
-            if arr[i][j] <= arr[i][j-1]: #shorter the not visible 
+def check_left(arr, i, j): 
+        while i - 1 >= 0 : 
+            if arr[i][j] <= arr[i-1][j]: #shorter or same size the not visible 
                 return False 
-            j -= 1
-        return True 
+            i -= 1
+        return True   
+
 
 
 
 def _check(arr, i , j) :
         if i == 0 or j == 0 or i == len(arr) or j == len(arr[0]): 
             return 1 # the tree is on the edge
-        elif  check_up(arr, i , j) or check_down(arr, i , j) or check_right(arr, i , j) or check_left(arr, i , j) : 
+        elif  check_up(arr, i , j) or check_down(arr, i, j) or \
+            check_right(arr, i, j) or check_left(arr, i, j) : 
             return 1 #its visible from some direction
         return 0 
 
@@ -57,7 +65,13 @@ _arr = [[3,0,3,7,3],
 
 for  i in range (len(_arr)) : #rows
     for j in range(len(_arr[0])): #columns 
-        print(f"i: {i}, j:{j}, val: {_arr[i][j]}")
-        lst.append(_check(_arr, i, j)) #add the number of visibles to list
-
+        
+        result = (_check(_arr, i, j)) #add the number of visibles to list
+        lst.append(result)
+        if result == 1 : 
+            print(f"i: {i}, j:{j}, val: {_arr[i][j]}, VISIBLE")
+            
+        else : 
+            print(f"i: {i}, j:{j}, val: {_arr[i][j]}, HIDDEN")
+    print(f"_________________________________________")
 print(f"Number of visible Trees: {sum(lst)}")
