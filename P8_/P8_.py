@@ -47,7 +47,7 @@ def check_left(arr, i, j):
 
 
 def _check(arr, i , j) :
-        if i == 0 or j == 0 or i == len(arr) or j == len(arr[0]): 
+        if i == 0 or j == 0 or i == len(arr)-1 or j == len(arr[0])-1: 
             return 1 # the tree is on the edge
         elif  check_up(arr, i , j) or check_down(arr, i, j) or \
             check_right(arr, i, j) or check_left(arr, i, j) : 
