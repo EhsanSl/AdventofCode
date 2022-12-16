@@ -75,7 +75,7 @@ if __name__ == '__main__':
         if not str : 
             fd.close() 
             break 
-        print(f"str: {str}")
+        #print(f"str: {str}")
 
         '''
         some_thing = "qrlZCwlqZrqqpWdlRqCRqdqcVNsVMzQzmNgNPBsRhVQVVzMs"
